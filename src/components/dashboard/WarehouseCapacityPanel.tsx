@@ -3,81 +3,87 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { AlertTriangle, Users, Clock, Truck, TrendingDown, CheckCircle } from "lucide-react";
-
 export const WarehouseCapacityPanel = () => {
   const warehouseData = {
     currentStaff: 72,
     requiredStaff: 80,
     maxCapacity: 120,
     carrier100Orders: 45,
-    estimatedDelayPerMissingStaff: 3.5, // minutes per missing operator
+    estimatedDelayPerMissingStaff: 3.5,
+    // minutes per missing operator
     criticalThreshold: 80
   };
-
-  const staffingProgress = (warehouseData.currentStaff / warehouseData.requiredStaff) * 100;
+  const staffingProgress = warehouseData.currentStaff / warehouseData.requiredStaff * 100;
   const missingStaff = warehouseData.requiredStaff - warehouseData.currentStaff;
   const estimatedDelay = missingStaff * warehouseData.estimatedDelayPerMissingStaff;
-
-  const capacityMetrics = [
-    {
-      title: "Current Operators",
-      value: warehouseData.currentStaff,
-      target: warehouseData.requiredStaff,
-      unit: "operators",
-      status: warehouseData.currentStaff >= warehouseData.requiredStaff ? "success" : "critical"
-    },
-    {
-      title: "Carrier 100 Orders",
-      value: warehouseData.carrier100Orders,
-      target: 50,
-      unit: "orders",
-      status: "warning"
-    },
-    {
-      title: "Estimated Delay Impact",
-      value: Math.round(estimatedDelay),
-      target: 0,
-      unit: "minutes",
-      status: estimatedDelay > 0 ? "critical" : "success"
-    },
-    {
-      title: "Capacity Utilization",
-      value: Math.round((warehouseData.currentStaff / warehouseData.maxCapacity) * 100),
-      target: 100,
-      unit: "%",
-      status: "info"
-    }
-  ];
-
-  const shiftData = [
-    { shift: "Morning (6-14)", current: 28, planned: 32, status: "understaffed" },
-    { shift: "Day (14-22)", current: 24, planned: 28, status: "understaffed" },
-    { shift: "Night (22-6)", current: 20, planned: 20, status: "adequate" }
-  ];
-
+  const capacityMetrics = [{
+    title: "Current Operators",
+    value: warehouseData.currentStaff,
+    target: warehouseData.requiredStaff,
+    unit: "operators",
+    status: warehouseData.currentStaff >= warehouseData.requiredStaff ? "success" : "critical"
+  }, {
+    title: "Carrier 100 Orders",
+    value: warehouseData.carrier100Orders,
+    target: 50,
+    unit: "orders",
+    status: "warning"
+  }, {
+    title: "Estimated Delay Impact",
+    value: Math.round(estimatedDelay),
+    target: 0,
+    unit: "minutes",
+    status: estimatedDelay > 0 ? "critical" : "success"
+  }, {
+    title: "Capacity Utilization",
+    value: Math.round(warehouseData.currentStaff / warehouseData.maxCapacity * 100),
+    target: 100,
+    unit: "%",
+    status: "info"
+  }];
+  const shiftData = [{
+    shift: "Morning (6-14)",
+    current: 28,
+    planned: 32,
+    status: "understaffed"
+  }, {
+    shift: "Day (14-22)",
+    current: 24,
+    planned: 28,
+    status: "understaffed"
+  }, {
+    shift: "Night (22-6)",
+    current: 20,
+    planned: 20,
+    status: "adequate"
+  }];
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "critical": return "destructive";
-      case "warning": return "secondary";
-      case "success": return "secondary";
-      case "info": return "secondary";
-      default: return "secondary";
+      case "critical":
+        return "destructive";
+      case "warning":
+        return "secondary";
+      case "success":
+        return "secondary";
+      case "info":
+        return "secondary";
+      default:
+        return "secondary";
     }
   };
-
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "critical": return <AlertTriangle className="h-4 w-4 text-destructive" />;
-      case "success": return <CheckCircle className="h-4 w-4 text-success" />;
-      default: return <Clock className="h-4 w-4 text-warning" />;
+      case "critical":
+        return <AlertTriangle className="h-4 w-4 text-destructive" />;
+      case "success":
+        return <CheckCircle className="h-4 w-4 text-success" />;
+      default:
+        return <Clock className="h-4 w-4 text-warning" />;
     }
   };
-
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       {/* Critical Alert */}
-      {warehouseData.currentStaff < warehouseData.requiredStaff && (
-        <Card className="border-destructive bg-destructive/5">
+      {warehouseData.currentStaff < warehouseData.requiredStaff && <Card className="border-destructive bg-destructive/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
@@ -92,7 +98,7 @@ export const WarehouseCapacityPanel = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm">
-                  <strong>{missingStaff} operators short</strong> - Estimated delay: <strong>+{Math.round(estimatedDelay)} minutes</strong> per order
+                  <strong className="bg-[#000d60]/0 rounded-none">{missingStaff} operators short</strong> - Estimated delay: <strong>+{Math.round(estimatedDelay)} minutes</strong> per order
                 </p>
               </div>
               <Button variant="destructive" size="sm">
@@ -100,13 +106,11 @@ export const WarehouseCapacityPanel = () => {
               </Button>
             </div>
           </CardContent>
-        </Card>
-      )}
+        </Card>}
 
       {/* Capacity Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {capacityMetrics.map((metric, index) => (
-          <Card key={index}>
+        {capacityMetrics.map((metric, index) => <Card key={index}>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 {getStatusIcon(metric.status)}
@@ -118,15 +122,9 @@ export const WarehouseCapacityPanel = () => {
               <div className="text-xs text-muted-foreground">
                 Target: {metric.target} {metric.unit}
               </div>
-              {metric.title === "Current Operators" && (
-                <Progress 
-                  value={staffingProgress} 
-                  className="mt-2"
-                />
-              )}
+              {metric.title === "Current Operators" && <Progress value={staffingProgress} className="mt-2" />}
             </CardContent>
-          </Card>
-        ))}
+          </Card>)}
       </div>
 
       {/* Shift Analysis */}
@@ -141,8 +139,7 @@ export const WarehouseCapacityPanel = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {shiftData.map((shift, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+              {shiftData.map((shift, index) => <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                   <div className="space-y-1">
                     <div className="font-medium">{shift.shift}</div>
                     <div className="text-sm text-muted-foreground">
@@ -154,13 +151,10 @@ export const WarehouseCapacityPanel = () => {
                       {shift.status === "adequate" ? "Adequate" : "Understaffed"}
                     </Badge>
                     <div className="text-sm">
-                      {shift.current < shift.planned && (
-                        <span className="text-destructive">-{shift.planned - shift.current}</span>
-                      )}
+                      {shift.current < shift.planned && <span className="text-destructive">-{shift.planned - shift.current}</span>}
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </CardContent>
         </Card>
@@ -200,10 +194,10 @@ export const WarehouseCapacityPanel = () => {
               </div>
 
               <div className="flex gap-2">
-                <Button size="sm" variant="outline" className="flex-1">
+                <Button size="sm" variant="outline" className="flex-1 bg-red-700 hover:bg-red-600 text-slate-50">
                   Request Overtime
                 </Button>
-                <Button size="sm" variant="outline" className="flex-1">
+                <Button size="sm" variant="outline" className="flex-1 text-slate-50 bg-red-700 hover:bg-red-600">
                   Temp Staff
                 </Button>
               </div>
@@ -220,7 +214,7 @@ export const WarehouseCapacityPanel = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 border rounded-lg">
+            <div className="p-4 border rounded-lg bg-red-300">
               <div className="font-medium mb-2">Immediate (Next 2 hours)</div>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• Call in 8 overtime operators</li>
@@ -229,7 +223,7 @@ export const WarehouseCapacityPanel = () => {
               </ul>
             </div>
             
-            <div className="p-4 border rounded-lg">
+            <div className="p-4 border rounded-lg bg-red-200">
               <div className="font-medium mb-2">Short-term (Today)</div>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• Contact temp agency for 5 operators</li>
@@ -238,7 +232,7 @@ export const WarehouseCapacityPanel = () => {
               </ul>
             </div>
             
-            <div className="p-4 border rounded-lg">
+            <div className="p-4 border rounded-lg bg-red-100">
               <div className="font-medium mb-2">Medium-term (This week)</div>
               <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>• Review staffing patterns</li>
@@ -249,6 +243,5 @@ export const WarehouseCapacityPanel = () => {
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
