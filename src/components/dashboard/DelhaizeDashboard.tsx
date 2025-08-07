@@ -6,16 +6,14 @@ import { ExternalFactorsPanel } from "./ExternalFactorsPanel";
 import { PredictiveOTIFPanel } from "./PredictiveOTIFPanel";
 import { WarehouseCapacityPanel } from "./WarehouseCapacityPanel";
 import { RiskAssessmentPanel } from "./RiskAssessmentPanel";
-
 const DelhaizeDashboard = () => {
-  return (
-    <div className="min-h-screen bg-background p-6">
+  return <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
-            <div className="bg-primary p-3 rounded-lg">
-              <img src="/lovable-uploads/11421508-58bf-441b-b240-c34a3817507d.png" alt="Delhaize Logo" className="h-8 w-8" />
+            <div className="p-0 rounded-lg px-0 py-0 bg-slate-50">
+              <img src="/lovable-uploads/8813f45d-19f5-4076-9e6b-9633cd39a62c.png" alt="Delhaize Logo" className="h-16 w-16" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-foreground">Delhaize Belgium</h1>
@@ -93,8 +91,6 @@ const DelhaizeDashboard = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default DelhaizeDashboard;
