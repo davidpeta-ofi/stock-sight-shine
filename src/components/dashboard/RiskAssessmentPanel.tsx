@@ -2,93 +2,95 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, Package, DollarSign, Clock, TrendingDown, MapPin } from "lucide-react";
-
 export const RiskAssessmentPanel = () => {
-  const criticalOrders = [
-    {
-      orderId: "ORD-042502030311",
-      store: "L034 - Leuven Center",
-      value: "€12,450",
-      items: 145,
-      risk: "High",
-      reason: "Warehouse understaffing + weather delay",
-      estimatedLoss: "€2,100",
-      perishables: 35,
-      timeWindow: "2 hours remaining"
-    },
-    {
-      orderId: "ORD-042502030401", 
-      store: "B682 - Brussels North",
-      value: "€8,920",
-      items: 98,
-      risk: "Medium",
-      reason: "Route disruption (roadworks)",
-      estimatedLoss: "€890",
-      perishables: 12,
-      timeWindow: "4 hours remaining"
-    },
-    {
-      orderId: "ORD-042502030515",
-      store: "B618 - Antwerp West", 
-      value: "€15,670",
-      items: 201,
-      risk: "Critical",
-      reason: "Bridge closure + driver shortage",
-      estimatedLoss: "€4,200",
-      perishables: 67,
-      timeWindow: "1 hour remaining"
-    }
-  ];
-
+  const criticalOrders = [{
+    orderId: "ORD-042502030311",
+    store: "L034 - Leuven Center",
+    value: "€12,450",
+    items: 145,
+    risk: "High",
+    reason: "Warehouse understaffing + weather delay",
+    estimatedLoss: "€2,100",
+    perishables: 35,
+    timeWindow: "2 hours remaining"
+  }, {
+    orderId: "ORD-042502030401",
+    store: "B682 - Brussels North",
+    value: "€8,920",
+    items: 98,
+    risk: "Medium",
+    reason: "Route disruption (roadworks)",
+    estimatedLoss: "€890",
+    perishables: 12,
+    timeWindow: "4 hours remaining"
+  }, {
+    orderId: "ORD-042502030515",
+    store: "B618 - Antwerp West",
+    value: "€15,670",
+    items: 201,
+    risk: "Critical",
+    reason: "Bridge closure + driver shortage",
+    estimatedLoss: "€4,200",
+    perishables: 67,
+    timeWindow: "1 hour remaining"
+  }];
   const stockRiskAnalysis = {
     totalAtRisk: 156700,
     perishableAtRisk: 45200,
     ordersMissed: 23,
     storesAffected: 8,
-    categories: [
-      { name: "Fresh Produce", risk: "€18,450", percentage: 65 },
-      { name: "Dairy", risk: "€12,200", percentage: 45 },
-      { name: "Meat & Fish", risk: "€8,900", percentage: 80 },
-      { name: "Bakery", risk: "€5,650", percentage: 70 }
-    ]
+    categories: [{
+      name: "Fresh Produce",
+      risk: "€18,450",
+      percentage: 65
+    }, {
+      name: "Dairy",
+      risk: "€12,200",
+      percentage: 45
+    }, {
+      name: "Meat & Fish",
+      risk: "€8,900",
+      percentage: 80
+    }, {
+      name: "Bakery",
+      risk: "€5,650",
+      percentage: 70
+    }]
   };
-
   const getRiskColor = (risk: string) => {
     switch (risk) {
-      case "Critical": return "destructive";
-      case "High": return "destructive";
-      case "Medium": return "warning";
-      case "Low": return "success";
-      default: return "secondary";
+      case "Critical":
+        return "destructive";
+      case "High":
+        return "destructive";
+      case "Medium":
+        return "warning";
+      case "Low":
+        return "success";
+      default:
+        return "secondary";
     }
   };
-
-  const mitigationActions = [
-    {
-      action: "Emergency Re-routing",
-      description: "Reroute critical deliveries via alternative routes",
-      impact: "Save 15 orders, €45k value",
-      timeRequired: "30 minutes",
-      cost: "€450 extra fuel"
-    },
-    {
-      action: "Priority Loading",
-      description: "Fast-track perishable orders in loading queue",
-      impact: "Reduce spoilage by 60%",
-      timeRequired: "15 minutes",
-      cost: "€200 overtime"
-    },
-    {
-      action: "Customer Communication",
-      description: "Proactive notification to affected stores",
-      impact: "Maintain customer satisfaction",
-      timeRequired: "5 minutes",
-      cost: "No additional cost"
-    }
-  ];
-
-  return (
-    <div className="space-y-6">
+  const mitigationActions = [{
+    action: "Emergency Re-routing",
+    description: "Reroute critical deliveries via alternative routes",
+    impact: "Save 15 orders, €45k value",
+    timeRequired: "30 minutes",
+    cost: "€450 extra fuel"
+  }, {
+    action: "Priority Loading",
+    description: "Fast-track perishable orders in loading queue",
+    impact: "Reduce spoilage by 60%",
+    timeRequired: "15 minutes",
+    cost: "€200 overtime"
+  }, {
+    action: "Customer Communication",
+    description: "Proactive notification to affected stores",
+    impact: "Maintain customer satisfaction",
+    timeRequired: "5 minutes",
+    cost: "No additional cost"
+  }];
+  return <div className="space-y-6">
       {/* Risk Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="border-destructive">
@@ -155,8 +157,7 @@ export const RiskAssessmentPanel = () => {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {criticalOrders.map((order, index) => (
-              <div key={index} className="p-4 border rounded-lg bg-card">
+            {criticalOrders.map((order, index) => <div key={index} className="p-4 border rounded-lg bg-card">
                 <div className="flex items-start justify-between mb-3">
                   <div className="space-y-1">
                     <div className="font-medium">{order.orderId}</div>
@@ -192,12 +193,11 @@ export const RiskAssessmentPanel = () => {
                 </div>
 
                 <div className="flex gap-2 mt-3">
-                  <Button size="sm" variant="outline">Reroute</Button>
-                  <Button size="sm" variant="outline">Priority Load</Button>
-                  <Button size="sm" variant="outline">Alert Store</Button>
+                  <Button size="sm" variant="outline" className="bg-red-700 hover:bg-red-600 text-slate-50">Reroute</Button>
+                  <Button size="sm" variant="outline" className="bg-red-700 hover:bg-red-600 text-slate-50">Priority Load</Button>
+                  <Button size="sm" variant="outline" className="bg-red-700 hover:bg-red-600 text-slate-50">Alert Store</Button>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </CardContent>
       </Card>
@@ -214,23 +214,20 @@ export const RiskAssessmentPanel = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {stockRiskAnalysis.categories.map((category, index) => (
-                <div key={index} className="space-y-2">
+              {stockRiskAnalysis.categories.map((category, index) => <div key={index} className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium">{category.name}</span>
                     <span className="text-sm font-medium text-destructive">{category.risk}</span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
-                    <div 
-                      className="bg-destructive h-2 rounded-full" 
-                      style={{ width: `${category.percentage}%` }}
-                    ></div>
+                    <div className="bg-destructive h-2 rounded-full" style={{
+                  width: `${category.percentage}%`
+                }}></div>
                   </div>
                   <div className="text-xs text-muted-foreground">
                     {category.percentage}% of category at risk
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </CardContent>
         </Card>
@@ -245,8 +242,7 @@ export const RiskAssessmentPanel = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {mitigationActions.map((action, index) => (
-                <div key={index} className="p-3 border rounded-lg">
+              {mitigationActions.map((action, index) => <div key={index} className="p-3 border rounded-lg">
                   <div className="flex justify-between items-start mb-2">
                     <div className="font-medium">{action.action}</div>
                     <Badge variant="outline">{action.timeRequired}</Badge>
@@ -261,8 +257,7 @@ export const RiskAssessmentPanel = () => {
                   <Button size="sm" className="w-full mt-2">
                     Execute Action
                   </Button>
-                </div>
-              ))}
+                </div>)}
             </div>
           </CardContent>
         </Card>
@@ -344,6 +339,5 @@ export const RiskAssessmentPanel = () => {
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
