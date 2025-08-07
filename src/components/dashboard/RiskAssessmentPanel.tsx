@@ -5,7 +5,7 @@ import { AlertTriangle, Package, DollarSign, Clock, TrendingDown, MapPin } from 
 export const RiskAssessmentPanel = () => {
   const criticalOrders = [{
     orderId: "ORD-042502030311",
-    store: "L034 - Leuven Center",
+    store: "L04 - Leuven Kessel-Lo",
     value: "€12,450",
     items: 145,
     risk: "High",
@@ -15,7 +15,7 @@ export const RiskAssessmentPanel = () => {
     timeWindow: "2 hours remaining"
   }, {
     orderId: "ORD-042502030401",
-    store: "B682 - Brussels North",
+    store: "B045 - Brussels Croix de Guerre",
     value: "€8,920",
     items: 98,
     risk: "Medium",
@@ -25,7 +25,7 @@ export const RiskAssessmentPanel = () => {
     timeWindow: "4 hours remaining"
   }, {
     orderId: "ORD-042502030515",
-    store: "B618 - Antwerp West",
+    store: "A013 - Antwerp Bosuil",
     value: "€15,670",
     items: 201,
     risk: "Critical",
