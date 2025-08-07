@@ -15,7 +15,7 @@ const DelhaizeDashboard = () => {
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <div className="bg-primary p-3 rounded-lg">
-              <img src="/lovable-uploads/8813f45d-19f5-4076-9e6b-9633cd39a62c.png" alt="Delhaize Logo" className="h-8 w-8" />
+              <img src="/lovable-uploads/11421508-58bf-441b-b240-c34a3817507d.png" alt="Delhaize Logo" className="h-8 w-8" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-foreground">Delhaize Belgium</h1>
