@@ -67,7 +67,7 @@ const DelhaizeDashboard = () => {
 
         {/* Main Dashboard Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-primary/10 border border-primary/20">
+          <TabsList className="grid w-full grid-cols-4 border border-primary/20 bg-slate-950">
             <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Overview</TabsTrigger>
             <TabsTrigger value="external-factors" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">External Factors</TabsTrigger>
             <TabsTrigger value="warehouse-capacity" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Warehouse Capacity</TabsTrigger>
