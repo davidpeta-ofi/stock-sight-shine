@@ -11,30 +11,31 @@ const DelhaizeDashboard = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-0 rounded-lg px-0 py-0 bg-slate-50">
+          <div className="flex items-center gap-4 mb-4 p-6 bg-card border border-border rounded-lg shadow-sm">
+            <div className="p-2 rounded-lg bg-primary/10">
               <img src="/lovable-uploads/8813f45d-19f5-4076-9e6b-9633cd39a62c.png" alt="Delhaize Logo" className="h-16 w-16" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-foreground">Predictive Logistics Dashboard</h1>
+              <p className="text-muted-foreground">Real-time insights powered by Delhaize data</p>
             </div>
           </div>
           
           {/* Key Metrics Overview */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Predicted Store Deliveries</CardTitle>
+            <Card className="border-l-4 border-l-primary">
+              <CardHeader className="pb-2 bg-primary/5">
+                <CardTitle className="text-sm font-medium text-primary">Predicted Store Deliveries</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">8,188</div>
+                <div className="text-2xl font-bold text-foreground">8,188</div>
                 <p className="text-xs text-muted-foreground">Today's forecast</p>
               </CardContent>
             </Card>
             
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Prediction Accuracy</CardTitle>
+            <Card className="border-l-4 border-l-success">
+              <CardHeader className="pb-2 bg-success/5">
+                <CardTitle className="text-sm font-medium text-success">Prediction Accuracy</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-success">88.04%</div>
@@ -42,9 +43,9 @@ const DelhaizeDashboard = () => {
               </CardContent>
             </Card>
             
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Avg Predicted Delay</CardTitle>
+            <Card className="border-l-4 border-l-warning">
+              <CardHeader className="pb-2 bg-warning/5">
+                <CardTitle className="text-sm font-medium text-warning">Avg Predicted Delay</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-warning">49 min</div>
@@ -52,9 +53,9 @@ const DelhaizeDashboard = () => {
               </CardContent>
             </Card>
             
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">OTIF Compliance</CardTitle>
+            <Card className="border-l-4 border-l-primary">
+              <CardHeader className="pb-2 bg-primary/5">
+                <CardTitle className="text-sm font-medium text-primary">OTIF Compliance</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-primary">78%</div>
@@ -66,11 +67,11 @@ const DelhaizeDashboard = () => {
 
         {/* Main Dashboard Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="external-factors">External Factors</TabsTrigger>
-            <TabsTrigger value="warehouse-capacity">Warehouse Capacity</TabsTrigger>
-            <TabsTrigger value="risk-assessment">Risk Assessment</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 bg-primary/10 border border-primary/20">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Overview</TabsTrigger>
+            <TabsTrigger value="external-factors" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">External Factors</TabsTrigger>
+            <TabsTrigger value="warehouse-capacity" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Warehouse Capacity</TabsTrigger>
+            <TabsTrigger value="risk-assessment" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Risk Assessment</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
