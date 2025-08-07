@@ -16,7 +16,7 @@ const DelhaizeDashboard = () => {
               <img src="/lovable-uploads/8813f45d-19f5-4076-9e6b-9633cd39a62c.png" alt="Delhaize Logo" className="h-16 w-16" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-foreground">Delhaize Belgium</h1>
+              <h1 className="text-3xl font-bold text-foreground">Predictive Logistics Dashboard</h1>
               <p className="text-lg text-muted-foreground">Predictive Logistics Dashboard</p>
             </div>
           </div>
