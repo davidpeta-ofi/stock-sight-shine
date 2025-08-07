@@ -11,12 +11,12 @@ const DelhaizeDashboard = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4 p-6 bg-card border border-border rounded-lg shadow-sm">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <img src="/lovable-uploads/8813f45d-19f5-4076-9e6b-9633cd39a62c.png" alt="Delhaize Logo" className="h-16 w-16" />
+          <div className="flex items-center gap-4 mb-4 p-6 border border-border rounded-lg shadow-sm bg-[#000a0e]/0">
+            <div className="p-2 rounded-lg bg-black/0">
+              <img src="/lovable-uploads/8813f45d-19f5-4076-9e6b-9633cd39a62c.png" alt="Delhaize Logo" className="" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-foreground">Predictive Logistics Dashboard</h1>
+              <h1 className="text-3xl font-bold text-left text-slate-950">Predictive Logistics Dashboard</h1>
               <p className="text-muted-foreground">Real-time insights powered by Delhaize data</p>
             </div>
           </div>
@@ -67,7 +67,7 @@ const DelhaizeDashboard = () => {
 
         {/* Main Dashboard Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-primary/10 border border-primary/20">
+          <TabsList className="grid w-full grid-cols-4 border border-primary/20 bg-slate-950">
             <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Overview</TabsTrigger>
             <TabsTrigger value="external-factors" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">External Factors</TabsTrigger>
             <TabsTrigger value="warehouse-capacity" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Warehouse Capacity</TabsTrigger>
